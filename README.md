@@ -8,7 +8,7 @@ install.packages("sp")
 install.packages("tidyverse")
 install.packages("ggplot")
 install.packages("dplyr")
-istall.packages("sf")
+install.packages("sf")
 #Load Packages
 library(sp)
 library(tidyverse)
