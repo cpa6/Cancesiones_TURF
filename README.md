@@ -21,6 +21,10 @@ turf <-read.csv("C:/Users/ATKIN/OneDrive/Desktop/MPA/Data/Turf_polygons.csv")
 head(turf)
 dir(turf)
 dim(turf)
+#Installing rnatural earthpackage to provide base map of Mexico
+install.packages("rnaturalearthhires",
+                 repos = "http://packages.ropensci.org",
+                 type = "source")
 
 #Create dataframe and combining all of the latitude and longitude from TURFS and grouping them by sub_id
 turf.poly <- data.frame(
@@ -38,7 +42,7 @@ mx_c_1.1 <- filter("subid")
 
 #Loop to create multiple polygons 
 # Example data
-turf <- t(replicate(50, {
+poly.turf <- t(replicate(50, {
   o <- runif(2)
   c(o, o + c(0, 0.1), o + 0.1, o + c(0.1, 0), o)
 }))
@@ -68,7 +72,7 @@ extent(turf)
 # add extra space to right of plot area; 
 # par(mar=c(5.1, 4.1, 4.1, 8.1), xpd=TRUE)
 
-plot(extent(plot.locationsSp_HARV),
+plot(extent(turf),
      col="purple", 
      xlab="latitude",
      ylab="longitude", lwd=8,
